@@ -68,8 +68,8 @@ class DatabaseSeeder extends Seeder
       
       // TABLE USER
       
-      /*DB::table('users')->insert(
-          [ 'name'           => 'Jose C.',
+      DB::table('users')->insert(
+          [   'name'         => 'Jose C.',
               'email'        => 'jclavotafur@gmail.com',
               'password'     => bcrypt('clavo123'),
               'user_type_id' => 1,
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
               'updated_at'   => now(),
           ]
           );
-      */
+      
       
       
     }
