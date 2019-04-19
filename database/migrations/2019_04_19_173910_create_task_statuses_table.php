@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaskStatusTable extends Migration
+class CreateTaskStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTaskStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_status', function (Blueprint $table) {
+        Schema::create('task_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->char('description', 45);
             $table->timestamps();
