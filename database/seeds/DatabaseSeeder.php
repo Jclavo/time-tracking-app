@@ -15,50 +15,69 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         // TABLE USER_TYPES
         DB::table('user_types')->insert(
-            ['description' => 'Developer',
-             'created_at' => now(),
-             'updated_at' => now(),
+            ['id'          => 1,
+             'description' => 'Developer',
+             'created_at'  => now(),
+             'updated_at'  => now(),
             ]
        );
        DB::table('user_types')->insert(
-            ['description' => 'Project manager',
-                'created_at' => now(),
-                'updated_at' => now(),
+           ['id'          => 2,
+             'description' => 'Project manager',
+             'created_at' => now(),
+             'updated_at' => now(),
             ]
       );
       DB::table('user_types')->insert(
-            ['description' => 'Marketing',
-                'created_at' => now(),
-                'updated_at' => now(),
+            [   'id'          => 3,
+                'description' => 'Marketing',
+                'created_at'  => now(),
+                'updated_at'  => now(),
             ]
       );
       
       // TABLE TASK_STATUS
       DB::table('task_status')->insert(
-          ['description' => 'Open',
-            'created_at' => now(),
-            'updated_at' => now(),
+          [ 'id'          => 1,
+            'description' => 'Open',
+            'created_at'  => now(),
+            'updated_at'  => now(),
           ]
       );
       DB::table('task_status')->insert(
-          ['description' => 'Closed',
+          [   'id'          => 2,
+              'description' => 'Closed',
+              'created_at'  => now(),
+              'updated_at'  => now(),
+          ]
+          );
+      DB::table('task_status')->insert(
+          [   'id'          => 3,
+              'description' => 'Implementation',
               'created_at' => now(),
               'updated_at' => now(),
           ]
           );
       DB::table('task_status')->insert(
-          ['description' => 'Implementation',
-              'created_at' => now(),
-              'updated_at' => now(),
-          ]
-          );
-      DB::table('task_status')->insert(
-          ['description' => 'Testing',
+          [   'id'          => 4,
+              'description' => 'Testing',
               'created_at' => now(),
               'updated_at' => now(),
           ]
           );
       
+      // TABLE USER
+      
+      /*DB::table('users')->insert(
+          [ 'name'           => 'Jose C.',
+              'email'        => 'jclavotafur@gmail.com',
+              'password'     => bcrypt('clavo123'),
+              'user_type_id' => 1,
+              'created_at'   => now(),
+              'updated_at'   => now(),
+          ]
+          );
+      */
       
       
     }
