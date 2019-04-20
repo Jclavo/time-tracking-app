@@ -21,6 +21,10 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('projects', 'ProjectController');
+
+Route::get('tasks/trackingAll', 'TaskController@trackingAll')->name('tasks.trackingAll');
+Route::post('tasks/trackingByUser', 'TaskController@trackingByUser')->name('tasks.trackingByUser');
+
 Route::resource('tasks', 'TaskController');
 
 
