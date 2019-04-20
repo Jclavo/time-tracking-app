@@ -29,6 +29,12 @@
     			@endforeach
 			</select>
 		</div>
+		
+		<div class="form-group">
+            <input type="checkbox" class="form-check-input" id="admin">
+            <label class="form-check-label" for="admin">Admin</label>
+        </div>
+		
 
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Add user</button>

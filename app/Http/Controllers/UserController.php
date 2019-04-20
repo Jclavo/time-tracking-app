@@ -69,7 +69,8 @@ class UserController extends Controller
             'name'          => $request->get('name'),
             'email'         => $request->get('email'),
             'password'      => bcrypt($request->get('email')),
-            'user_type_id'  => $request->get('user_type_id')
+            'user_type_id'  => $request->get('user_type_id'),
+            'admin'         => $request->get('admin'),
         ]);
         
         $user->save();
