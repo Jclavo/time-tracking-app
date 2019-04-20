@@ -34,7 +34,7 @@
                  <a class="navbar-brand" href="{{ route('tasks.index')}}">
                     Tasks
                 </a>
-                <a class="navbar-brand" href="{{ route('tasks.trackingAll')}}">
+                <a class="navbar-brand" href="{{ route('tasks.tracking')}}">
                     Time-tracking
                 </a>
 

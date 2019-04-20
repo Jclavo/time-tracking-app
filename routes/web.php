@@ -22,8 +22,10 @@ Auth::routes();
 
 Route::resource('projects', 'ProjectController');
 
-Route::get('tasks/trackingAll', 'TaskController@trackingAll')->name('tasks.trackingAll');
-Route::post('tasks/trackingByUser', 'TaskController@trackingByUser')->name('tasks.trackingByUser');
+//Route::get('tasks/trackingAll', 'TaskController@trackingAll')->name('tasks.trackingAll');
+//Route::get('tasks/tracking', 'TaskController@tracking')->name('tasks.tracking');
+Route::match(array('GET','POST'),'tasks/tracking', 'TaskController@tracking')->name('tasks.tracking');
+
 
 Route::resource('tasks', 'TaskController');
 

@@ -192,15 +192,16 @@ class TaskController extends Controller
      * 
      */
     
-    public function trackingAll()
+ /*   public function trackingAll(Request $request)
     {
         
         if (Auth::check()) {
                         
-            $tasks = Task::all();
-            $users = User::all();
+            $tasks    = Task::all();
+            $users    = User::all();
+            $projects = Project::all();
             $user_id_selected = 0;
-            return view('tasks.tracking', compact('tasks','users','user_id_selected'));
+            return view('tasks.tracking', compact('tasks','users','projects','user_id_selected'));
             //return view('tasks.report');
         }
         else{
@@ -208,18 +209,51 @@ class TaskController extends Controller
         }
        
     }
+*/
     
-    public function trackingByUser(Request $request)
+    public function tracking(Request $request)
     {
         
         if (Auth::check()) {
             
-            $user_id_selected = $request->get('user_id');
+            $user_check = null;
+            $project_check = null;
+            if ($request != null) {
+                //$user_check = $request->get('user_check');
+                if ($request->get('user_check')) {
+                    $user_check = 'X';
+                }
+                if ($request->get('project_check')) {
+                    $project_check = 'X';
+                }
+                
+                $user_id_selected = $request->get('user_id');
+                $project_id_selected = $request->get('project_id');
+            }
             
-            $tasks = Task::all()->where('user_id', $request->get('user_id'));
+            if ($user_check == 'X' && $project_check == 'X') {
+                $tasks = Task::all()->where('user_id', $user_id_selected )
+                                    ->where('project_id', $project_id_selected);
+            }
+            elseif ($user_check == 'X')
+            {
+                $tasks = Task::all()->where('user_id', $user_id_selected );
+            }
+            elseif ($project_check == 'X')
+            {
+                $tasks = Task::all()->where('project_id', $project_id_selected );
+            }
+            else 
+            {
+                $tasks = Task::all();
+            }
+            
+
             $users = User::all();
-            return view('tasks.tracking', compact('tasks','users','user_id_selected'));
-            //return view('tasks.report');
+            $projects = Project::all();
+            return view('tasks.tracking', compact('tasks','users','projects',
+                                                  'user_id_selected','project_id_selected',
+                                                   'user_check','project_check'));
         }
         else{
             return redirect('/');

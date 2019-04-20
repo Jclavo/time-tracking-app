@@ -16,14 +16,13 @@
     }
     </style>
 
-    
 @stop
 
 @section('content')
 
 
 <div class="container">
-	<form method="POST" class="form-inline" action="{{ route('tasks.trackingByUser') }}">
+	<form method="POST" class="form-inline" action="{{ route('tasks.tracking') }}">
 
 		<div class="form-group">
 			<label 	  for="user_id">Users:</label>
@@ -37,19 +36,48 @@
     				
     			@endforeach
 			</select>
-		</div>		
+		</div>
+		<div class="form-group">
+			<label 	  for="project">Projects:</label>
+			<select class="form-control" name="project_id">
+    			 @foreach($projects as $project)
+    			 	@if($project->id == $project_id_selected )
+    			 		<option value="{{$project->id}}" selected>{{$project->name}}</option>
+    			 	@else
+    			 		<option value="{{$project->id}}">{{$project->name}}</option>
+    			 	@endif
+    				
+    			@endforeach
+			</select>
+		</div>
+		
+		<div class="form-group">
+			@if( $user_check == 'X')
+    			 <input type="checkbox" name="user_check" checked>
+    		@else
+    			<input type="checkbox" name="user_check" >
+    		@endif
+    		<label class="form-check-label" for="user_check">User</label>
+  		</div>
+  		
+  		<div class="form-group">
+  			@if( $project_check == 'X')
+  				<input type="checkbox" class="form-check-input" name="project_check" checked>
+  			@else
+  				<input type="checkbox" class="form-check-input" name="project_check">
+  			@endif
+    		<label class="form-check-label" for="projectCheck">Project</label>
+  		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Search</button>
-		</div>
-		<div>
-			@if($user_id_selected == 0 )
-				<button type="submit" class="btn btn-danger" disabled>All users selected </button>
-		 	@endif
 		</div>
 		{{ csrf_field() }}
 	</form>
 </div>
+
 <br>
+
+
 
 <div id='calendar'></div>
 
