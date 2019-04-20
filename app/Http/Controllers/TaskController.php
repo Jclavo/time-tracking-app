@@ -192,19 +192,39 @@ class TaskController extends Controller
      * 
      */
     
-    public function report()
+    public function trackingAll()
     {
         
         if (Auth::check()) {
+                        
             $tasks = Task::all();
             $users = User::all();
-            return view('tasks.report', compact('tasks','users'));
+            $user_id_selected = 0;
+            return view('tasks.tracking', compact('tasks','users','user_id_selected'));
             //return view('tasks.report');
         }
         else{
             return redirect('/');
         }
        
+    }
+    
+    public function trackingByUser(Request $request)
+    {
+        
+        if (Auth::check()) {
+            
+            $user_id_selected = $request->get('user_id');
+            
+            $tasks = Task::all()->where('user_id', $request->get('user_id'));
+            $users = User::all();
+            return view('tasks.tracking', compact('tasks','users','user_id_selected'));
+            //return view('tasks.report');
+        }
+        else{
+            return redirect('/');
+        }
+        
     }
 
 
