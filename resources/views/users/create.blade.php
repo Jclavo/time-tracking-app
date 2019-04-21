@@ -31,8 +31,8 @@
 		</div>
 		
 		<div class="form-group">
-            <input type="checkbox" class="form-check-input" id="admin">
-            <label class="form-check-label" for="admin">Admin</label>
+            <input type="checkbox" class="form-check-input" name="admin_check">
+            <label class="form-check-label" for="admin_check">Admin</label>
         </div>
 		
 

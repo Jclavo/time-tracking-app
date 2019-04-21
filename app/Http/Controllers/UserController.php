@@ -64,13 +64,18 @@ class UserController extends Controller
         ]);
         
         // $fillable = array('make', 'model', 'produced_on');
+        $admin_check = 0;
+        if ($request->get('admin_check')) {
+            $admin_check = 1;
+        }
+        
         
         $user = new user([
             'name'          => $request->get('name'),
             'email'         => $request->get('email'),
             'password'      => bcrypt($request->get('email')),
             'user_type_id'  => $request->get('user_type_id'),
-            'admin'         => $request->get('admin'),
+            'admin'         => $admin_check,
         ]);
         
         $user->save();

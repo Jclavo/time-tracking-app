@@ -14,6 +14,7 @@
 				<td >user</td>
 				<td >email</td>
 				<td >type</td>
+				<td >admin</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -22,6 +23,11 @@
 				<td>{{$user->name}}</td>
 				<td>{{$user->email}}</td>
 				<td>{{$user->userType->description}}</td>
+				@if($user->admin == 1 )
+    			 	<td>Yes</td>
+    			@else
+    				<td>No</td>
+    			@endif	
 			</tr>
 
 			@endforeach
