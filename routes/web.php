@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
 Route::get('users', 'UserController@index')->name('users.index');
 Route::get('projects', 'ProjectController@index')->name('projects.index');
 
@@ -25,7 +26,7 @@ Route::get('tasks', 'TaskController@index')->name('tasks.index');
 //GROUPS
 Route::group(['middleware' => 'admin'], function() {
     
-    Auth::routes();
+    
     Route::resource('users', 'UserController', ['except' => 'index']);
     //Route::resource('users', 'UserController');
     Route::resource('projects', 'ProjectController', ['except' => 'index']);
