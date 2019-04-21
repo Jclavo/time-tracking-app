@@ -11,6 +11,8 @@ use App\Project;
 class TaskController extends Controller
 {
 
+    private $user_type_id_permitted = array(1,2);
+  
     /**
      * Display a listing of the resource.
      *
@@ -43,10 +45,14 @@ class TaskController extends Controller
         //
         if (Auth::check()) {
 
+            if (!in_array(Auth::user()->user_type_id, $this->user_type_id_permitted) ) {
+                return redirect('/tasks')->with('error', 'this action requires permissions!');
+            }
             $taskStatus = TaskStatus::all(['id', 'description']);
             $users = User::all(['id', 'email','user_type_id'])->whereIn('user_type_id',['1','2']);
             $projects = Project::all(['id', 'name']);
             return view('tasks.create',compact('users','projects','taskStatus'));
+            
         }
         else{
             return redirect('/');
@@ -66,6 +72,11 @@ class TaskController extends Controller
         //
         
         if (Auth::check()) {
+            
+            if (!in_array(Auth::user()->user_type_id, $this->user_type_id_permitted) ) {
+                return redirect('/tasks')->with('error', 'this action requires permissions!');
+            }
+            
             $request->validate([
                 'name'            => 'required',
                 'start_date'      => 'required',
