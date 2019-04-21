@@ -15,18 +15,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users', 'UserController');
-Auth::routes();
+Route::get('users', 'UserController@index')->name('users.index');
+Route::get('projects', 'ProjectController@index')->name('projects.index');
+
+Route::match(array('GET','POST'),'tasks/tracking', 'TaskController@tracking')->name('tasks.tracking')->middleware('auth','admin');
+
+Route::get('tasks', 'TaskController@index')->name('tasks.index');
+
+//GROUPS
+Route::group(['middleware' => 'admin'], function() {
+    
+    Auth::routes();
+    Route::resource('users', 'UserController', ['except' => 'index']);
+    //Route::resource('users', 'UserController');
+    Route::resource('projects', 'ProjectController', ['except' => 'index']);
+    Route::resource('tasks', 'TaskController', ['except' => 'index']);
+    
+});
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('projects', 'ProjectController');
-
-//Route::get('tasks/trackingAll', 'TaskController@trackingAll')->name('tasks.trackingAll');
-//Route::get('tasks/tracking', 'TaskController@tracking')->name('tasks.tracking');
-Route::match(array('GET','POST'),'tasks/tracking', 'TaskController@tracking')->name('tasks.tracking');
 
 
-Route::resource('tasks', 'TaskController');
+
+
 
 
