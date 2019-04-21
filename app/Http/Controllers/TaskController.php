@@ -249,7 +249,7 @@ class TaskController extends Controller
             }
             
 
-            $users = User::all(['id', 'email','user_type_id'])->whereIn('user_type_id',['1','2']);hepen01.
+            $users = User::all(['id', 'email','user_type_id'])->whereIn('user_type_id',['1','2']);
             
             $projects = Project::all();
             return view('tasks.tracking', compact('tasks','users','projects',
