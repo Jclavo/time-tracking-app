@@ -248,13 +248,15 @@ class TaskController extends Controller
                 $tasks = Task::all();
             }
             
-
+            $count_task = count($tasks);
+            
             $users = User::all(['id', 'email','user_type_id'])->whereIn('user_type_id',['1','2']);
             
             $projects = Project::all();
             return view('tasks.tracking', compact('tasks','users','projects',
                                                   'user_id_selected','project_id_selected',
-                                                   'user_check','project_check'));
+                                                   'user_check','project_check',
+                                                   'count_task'));
         }
         else{
             return redirect('/');
