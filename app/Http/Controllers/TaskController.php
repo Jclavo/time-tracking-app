@@ -7,6 +7,7 @@ use App\Task;
 use App\TaskStatus;
 use App\User;
 use App\Project;
+use PhpParser\Node\Stmt\Foreach_;
 
 class TaskController extends Controller
 {
@@ -259,6 +260,12 @@ class TaskController extends Controller
                 $tasks = Task::all();
             }
             
+            $count_hours = 0;
+            foreach($tasks as $task)
+            {
+                $count_hours = $count_hours + $task->hour;
+            }
+            
             $count_task = count($tasks);
             
             $users = User::all(['id', 'email','user_type_id'])->whereIn('user_type_id',['1','2']);
@@ -267,7 +274,7 @@ class TaskController extends Controller
             return view('tasks.tracking', compact('tasks','users','projects',
                                                   'user_id_selected','project_id_selected',
                                                    'user_check','project_check',
-                                                   'count_task'));
+                                                   'count_task','count_hours'));
         }
         else{
             return redirect('/');

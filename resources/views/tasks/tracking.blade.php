@@ -73,9 +73,11 @@
 		</div>
 		<div class="form-group">
 			@if( $count_task == 0)
-  				<button type="submit" class="btn btn-danger" disabled >Total Task found: {{$count_task}}</button>
+  				<button type="submit" class="btn btn-danger" disabled >Total Tasks found: {{$count_task}}</button>
   			@else
   				<button type="submit" class="btn btn-success" disabled >Total Task found: {{$count_task}}</button>
+  				<button type="submit" class="btn btn-info" disabled >Total Hours found: {{$count_hours}}</button>
+  			
   			@endif
 		</div>
 		{{ csrf_field() }}
