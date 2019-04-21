@@ -73,6 +73,7 @@ class DatabaseSeeder extends Seeder
               'email'        => 'jclavotafur@gmail.com',
               'password'     => bcrypt('clavo123'),
               'user_type_id' => 1,
+              'admin'        => 1,
               'created_at'   => now(),
               'updated_at'   => now(),
           ]
@@ -90,7 +91,7 @@ class DatabaseSeeder extends Seeder
           [   'name'         => 'Karla G.',
               'email'        => 'Karlita@hotmail.com',
               'password'     => bcrypt('clavo123'),
-              'user_type_id' => 1,
+              'user_type_id' => 3,
               'created_at'   => now(),
               'updated_at'   => now(),
           ]
@@ -99,20 +100,148 @@ class DatabaseSeeder extends Seeder
       // TABLE PROJECTS
       
       DB::table('projects')->insert(
-          [   'name'         => 'Working Capital',
+          [   'id'           => 1,
+              'name'         => 'Working Capital',
               'description'  => 'This project will help to manage money',
           ]
           );
       DB::table('projects')->insert(
-          [   'name'         => 'PAGFAC',
+          [   'id'           => 2,
+              'name'         => 'PAGFAC',
               'description'  => 'It is about Payments and',
           ]
           );
       DB::table('projects')->insert(
-          [   'name'         => 'IFRS16',
+          [   'id'           => 3,
+              'name'         => 'IFRS16',
               'description'  => 'This project is about reporting expenses',
           ]
           );
+      
+      // TABLE TASK
+      
+      DB::table('tasks')->insert(
+          [   'name'            => 'Estimation',
+              'start_date'      => '08/04/2019',
+              'end_date'        => '08/04/2019',
+              'hour'            => '3',
+              'task_status_id'  => '2',
+              'user_id'         => '1',
+              'project_id'      => '1',
+          ]
+          );
+      DB::table('tasks')->insert(
+          [   'name'            => 'Create MT100',
+              'start_date'      => '08/04/2019',
+              'end_date'        => '10/04/2019',
+              'hour'            => '20',
+              'task_status_id'  => '2',
+              'user_id'         => '1',
+              'project_id'      => '1',
+          ]
+          );
+      DB::table('tasks')->insert(
+          [   'name'            => 'Upload MT100',
+              'start_date'      => '11/04/2019',
+              'end_date'        => '12/04/2019',
+              'hour'            => '5',
+              'task_status_id'  => '2',
+              'user_id'         => '2',
+              'project_id'      => '1',
+          ]
+          );
+      DB::table('tasks')->insert(
+          [   'name'            => 'Unit test',
+              'start_date'      => '15/04/2019',
+              'end_date'        => '17/04/2019',
+              'hour'            => '20',
+              'task_status_id'  => '4',
+              'user_id'         => '1',
+              'project_id'      => '1',
+          ]
+          );
+      DB::table('tasks')->insert(
+          [   'name'            => 'Docs',
+              'start_date'      => '17/04/2019',
+              'end_date'        => '17/04/2019',
+              'hour'            => '5',
+              'task_status_id'  => '2',
+              'user_id'         => '1',
+              'project_id'      => '1',
+          ]
+          );
+      //TASKS -> PAGFAC
+      DB::table('tasks')->insert(
+          [   'name'            => 'Estimation',
+              'start_date'      => '17/04/2019',
+              'end_date'        => '17/04/2019',
+              'hour'            => '2',
+              'task_status_id'  => '1',
+              'user_id'         => '1',
+              'project_id'      => '2',
+          ]
+          );
+      DB::table('tasks')->insert(
+          [   'name'            => 'Create report',
+              'start_date'      => '17/04/2019',
+              'end_date'        => '19/04/2019',
+              'hour'            => '22',
+              'task_status_id'  => '3',
+              'user_id'         => '2',
+              'project_id'      => '2',
+          ]
+          );
+      DB::table('tasks')->insert(
+          [   'name'            => 'Export as PDF',
+              'start_date'      => '19/04/2019',
+              'end_date'        => '19/04/2019',
+              'hour'            => '8',
+              'task_status_id'  => '1',
+              'user_id'         => '1',
+              'project_id'      => '2',
+          ]
+          );
+      DB::table('tasks')->insert(
+          [   'name'            => 'Unit test 1',
+              'start_date'      => '22/04/2019',
+              'end_date'        => '22/04/2019',
+              'hour'            => '8',
+              'task_status_id'  => '1',
+              'user_id'         => '2',
+              'project_id'      => '2',
+          ]
+          );
+      DB::table('tasks')->insert(
+          [   'name'            => 'Unit test 1',
+              'start_date'      => '22/04/2019',
+              'end_date'        => '22/04/2019',
+              'hour'            => '8',
+              'task_status_id'  => '1',
+              'user_id'         => '1',
+              'project_id'      => '2',
+          ]
+          );
+      DB::table('tasks')->insert(
+          [   'name'            => 'Docs',
+              'start_date'      => '23/04/2019',
+              'end_date'        => '23/04/2019',
+              'hour'            => '4',
+              'task_status_id'  => '1',
+              'user_id'         => '1',
+              'project_id'      => '2,
+          ]
+          );
+            
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       
       
