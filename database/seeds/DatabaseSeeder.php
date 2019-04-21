@@ -122,18 +122,19 @@ class DatabaseSeeder extends Seeder
       
       DB::table('tasks')->insert(
           [   'name'            => 'Estimation',
-              'start_date'      => '08/04/2019',
-              'end_date'        => '08/04/2019',
+              'start_date'      => '2019-04-08',
+              'end_date'        => '2019-04-08',
               'hour'            => '3',
               'task_status_id'  => '2',
               'user_id'         => '1',
               'project_id'      => '1',
           ]
           );
+      
       DB::table('tasks')->insert(
           [   'name'            => 'Create MT100',
-              'start_date'      => '08/04/2019',
-              'end_date'        => '10/04/2019',
+              'start_date'      => '2019-04-08',
+              'end_date'        => '2019-04-10',
               'hour'            => '20',
               'task_status_id'  => '2',
               'user_id'         => '1',
@@ -142,8 +143,8 @@ class DatabaseSeeder extends Seeder
           );
       DB::table('tasks')->insert(
           [   'name'            => 'Upload MT100',
-              'start_date'      => '11/04/2019',
-              'end_date'        => '12/04/2019',
+              'start_date'      => '2019-04-11',
+              'end_date'        => '2019-04-12',
               'hour'            => '5',
               'task_status_id'  => '2',
               'user_id'         => '2',
@@ -152,8 +153,8 @@ class DatabaseSeeder extends Seeder
           );
       DB::table('tasks')->insert(
           [   'name'            => 'Unit test',
-              'start_date'      => '15/04/2019',
-              'end_date'        => '17/04/2019',
+              'start_date'      => '2019-04-15',
+              'end_date'        => '2019-04-17',
               'hour'            => '20',
               'task_status_id'  => '4',
               'user_id'         => '1',
@@ -162,8 +163,8 @@ class DatabaseSeeder extends Seeder
           );
       DB::table('tasks')->insert(
           [   'name'            => 'Docs',
-              'start_date'      => '17/04/2019',
-              'end_date'        => '17/04/2019',
+              'start_date'      => '2019-04-17',
+              'end_date'        => '2019-04-17',
               'hour'            => '5',
               'task_status_id'  => '2',
               'user_id'         => '1',
@@ -173,8 +174,8 @@ class DatabaseSeeder extends Seeder
       //TASKS -> PAGFAC
       DB::table('tasks')->insert(
           [   'name'            => 'Estimation',
-              'start_date'      => '17/04/2019',
-              'end_date'        => '17/04/2019',
+              'start_date'      => '2019-04-17',
+              'end_date'        => '2019-04-17',
               'hour'            => '2',
               'task_status_id'  => '1',
               'user_id'         => '1',
@@ -183,8 +184,8 @@ class DatabaseSeeder extends Seeder
           );
       DB::table('tasks')->insert(
           [   'name'            => 'Create report',
-              'start_date'      => '17/04/2019',
-              'end_date'        => '19/04/2019',
+              'start_date'      => '2019-04-17',
+              'end_date'        => '2019-04-19',
               'hour'            => '22',
               'task_status_id'  => '3',
               'user_id'         => '2',
@@ -193,8 +194,8 @@ class DatabaseSeeder extends Seeder
           );
       DB::table('tasks')->insert(
           [   'name'            => 'Export as PDF',
-              'start_date'      => '19/04/2019',
-              'end_date'        => '19/04/2019',
+              'start_date'      => '2019-04-19',
+              'end_date'        => '2019-04-19',
               'hour'            => '8',
               'task_status_id'  => '1',
               'user_id'         => '1',
@@ -203,8 +204,8 @@ class DatabaseSeeder extends Seeder
           );
       DB::table('tasks')->insert(
           [   'name'            => 'Unit test 1',
-              'start_date'      => '22/04/2019',
-              'end_date'        => '22/04/2019',
+              'start_date'      => '2019-04-22',
+              'end_date'        => '2019-04-22',
               'hour'            => '8',
               'task_status_id'  => '1',
               'user_id'         => '2',
@@ -213,8 +214,8 @@ class DatabaseSeeder extends Seeder
           );
       DB::table('tasks')->insert(
           [   'name'            => 'Unit test 1',
-              'start_date'      => '22/04/2019',
-              'end_date'        => '22/04/2019',
+              'start_date'      => '2019-04-22',
+              'end_date'        => '2019-04-22',
               'hour'            => '8',
               'task_status_id'  => '1',
               'user_id'         => '1',
@@ -223,12 +224,12 @@ class DatabaseSeeder extends Seeder
           );
       DB::table('tasks')->insert(
           [   'name'            => 'Docs',
-              'start_date'      => '23/04/2019',
-              'end_date'        => '23/04/2019',
+              'start_date'      => '2019-04-23',
+              'end_date'        => '2019-04-23',
               'hour'            => '4',
               'task_status_id'  => '1',
               'user_id'         => '1',
-              'project_id'      => '2,
+              'project_id'      => '2',
           ]
           );
             
