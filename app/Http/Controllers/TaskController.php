@@ -44,7 +44,7 @@ class TaskController extends Controller
         if (Auth::check()) {
 
             $taskStatus = TaskStatus::all(['id', 'description']);
-            $users = User::all(['id', 'email']);
+            $users = User::all(['id', 'email','user_type_id'])->whereIn('user_type_id',['1','2']);
             $projects = Project::all(['id', 'name']);
             return view('tasks.create',compact('users','projects','taskStatus'));
         }
@@ -120,7 +120,7 @@ class TaskController extends Controller
         //
         if (Auth::check()) {
             $taskStatus = TaskStatus::all(['id', 'description']);
-            $users = User::all(['id', 'email']);
+            $users = User::all(['id', 'email','user_type_id'])->whereIn('user_type_id',['1','2']);
             $projects = Project::all(['id', 'name']);
             return view('tasks.edit',compact('task','users','projects','taskStatus'));
         }
@@ -249,7 +249,8 @@ class TaskController extends Controller
             }
             
 
-            $users = User::all();
+            $users = User::all(['id', 'email','user_type_id'])->whereIn('user_type_id',['1','2']);hepen01.
+            
             $projects = Project::all();
             return view('tasks.tracking', compact('tasks','users','projects',
                                                   'user_id_selected','project_id_selected',
