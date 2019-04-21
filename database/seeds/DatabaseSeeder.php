@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
       
       DB::table('users')->insert(
           [   'name'         => 'Jose C.',
-              'email'        => 'jclavotafur@gmail.com',
+              'email'        => 'jclavo@gmail.com',
               'password'     => bcrypt('clavo123'),
               'user_type_id' => 1,
               'admin'        => 1,
@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
       DB::table('users')->insert(
           [   'name'         => 'Cristian C.',
               'email'        => 'cjesus@gmail.com',
-              'password'     => bcrypt('clavo123'),
+              'password'     => bcrypt('cjesus@gmail.com'),
               'user_type_id' => 1,
               'created_at'   => now(),
               'updated_at'   => now(),
@@ -89,8 +89,8 @@ class DatabaseSeeder extends Seeder
           );
       DB::table('users')->insert(
           [   'name'         => 'Karla G.',
-              'email'        => 'Karlita@hotmail.com',
-              'password'     => bcrypt('clavo123'),
+              'email'        => 'karlita@hotmail.com',
+              'password'     => bcrypt('karlita@hotmail.com'),
               'user_type_id' => 3,
               'created_at'   => now(),
               'updated_at'   => now(),
@@ -230,6 +230,17 @@ class DatabaseSeeder extends Seeder
               'task_status_id'  => '1',
               'user_id'         => '1',
               'project_id'      => '2',
+          ]
+          );
+      //TASKS -> PAGFAC
+      DB::table('tasks')->insert(
+          [   'name'            => 'To confirm',
+              'start_date'      => '2019-05-15',
+              'end_date'        => '2019-05-15',
+              'hour'            => '6',
+              'task_status_id'  => '1',
+              'user_id'         => '1',
+              'project_id'      => '3',
           ]
           );
             
